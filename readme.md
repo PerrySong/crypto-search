@@ -24,7 +24,7 @@ Require the object in your code
     
     //searchNames(prefix): Return all the cryptocurrencies' name whose name starts with the given prefix
     
-    let names = cryptoSearch.searchName('BtC');
+    let names = cryptoSearch.searchNames('BtC');
     console.log(names) // [ 'BTC Lite', 'BTCMoon' ]
 ```
 
@@ -35,7 +35,7 @@ Require the object in your code
 
     //searchSymbols(prefix): Return all the cryptocurrencies' symbol whose symbol starts with the given prefix
     
-    let symbols = cryptoSearch.searchSymbol('BtC');
+    let symbols = cryptoSearch.searchSymbols('BtC');
     console.log(symbols) /* [ 'BTC',
                             'BTCL',
                             'BTCL*',
@@ -65,7 +65,7 @@ Require the object in your code
     
     //namesToSymbols(prefix) return all the cryptocurrencies' symbol whose name starts with the given prefix
     
-    let symbols = cryptoSearch.nameToSymbols('BtC');
+    let symbols = cryptoSearch.namesToSymbols('BtC');
     console.log(symbols) /* [ 'BTCL', 'BTCM' ] */
 ```
 
