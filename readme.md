@@ -57,7 +57,7 @@ Require the object in your code
                             'BTCZ' ] */
 ```
 
-* nameToSymbol(string)
+* namesToSymbols(string)
 
 ```js
 
@@ -69,7 +69,7 @@ Require the object in your code
     console.log(symbols) /* [ 'BTCL', 'BTCM' ] */
 ```
 
-* symbolToName(string)
+* symbolsToNames(string)
 
 ```js
 
@@ -77,8 +77,8 @@ Require the object in your code
     
     //symbolsToNames(prefix) return all the cryptocurrencies' name whose symbol starts with the given prefix
     
-    let symbols = cryptoSearch.symbolToNames('BtC');
-    console.log(symbols) /* [ 'Bitcoin',
+    let names = cryptoSearch.symbolsToNames('BtC');
+    console.log(names) /* [ 'Bitcoin',
                               'BTC Lite',
                               'BitluckCoin',
                               'BTCMoon',
