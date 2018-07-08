@@ -1,55 +1,55 @@
-const fs = require('fs'),
-      TrieSearch = require('trie-search');
+const TrieSearch = require('trie-search'),
+      cryptocurrencies = require('./cryptocurrencies')
+      
 
-
+      
 module.exports = {
     searchName(name) {
-        const rawdata = fs.readFileSync('cryptocurrencies.json');  
-        const symbolToName = JSON.parse(rawdata); 
-        const ts = new TrieSearch();
         
-        ts.addFromObject(symbolToName);
+        const ts = new TrieSearch();
+        ts.addFromObject(cryptocurrencies.nameToSymbol);
         let itemsArray = ts.get(name);
+        
         const namesArray = itemsArray.map(item => {
-            return item.value;
+            return item._key_;
         })
+        
         return namesArray;
     },
+
     searchSymbol(symbol) {
-        const rawdata = fs.readFileSync('name-to-symbol.json');
-        const nameToSymbol = JSON.parse(rawdata); 
         const ts = new TrieSearch();
-        ts.addFromObject(nameToSymbol);
-
-        const itemsArray = ts.get(symbol);
+        ts.addFromObject(cryptocurrencies.symbolToName);
+        let itemsArray = ts.get(symbol);
+        
         const symbolsArray = itemsArray.map(item => {
-            return item.value;
+            return item._key_;
         })
         return symbolsArray;
     },
-    nameToSymbols(name) {
-        const rawdata = fs.readFileSync('name-to-symbol.json');
-        const nameToSymbol = JSON.parse(rawdata); 
-        const ts = new TrieSearch();
-        ts.addFromObject(nameToSymbol);
 
+    nameToSymbols(name) {
+        const ts = new TrieSearch();
+        ts.addFromObject(cryptocurrencies.nameToSymbol);
+        
         let itemsArray = ts.get(name);
+        const symbolsArray = itemsArray.map(item => {
+            return item.value;
+        })
+        
+        return symbolsArray;
+    },
+
+    symbolToNames(symbol) {
+        const ts = new TrieSearch();
+        ts.addFromObject(cryptocurrencies.symbolToName);
+        let itemsArray = ts.get(symbol);
+        
         const namesArray = itemsArray.map(item => {
             return item.value;
         })
+        
         return namesArray;
-    },
-    symbolToNames(symbol) {
-        const rawdata = fs.readFileSync('cryptocurrencies.json');  
-        const symbolToName = JSON.parse(rawdata); 
-        const ts = new TrieSearch();
-        ts.addFromObject(symbolToName);
-
-        const itemsArray = ts.get(symbol);
-        const symbolsArray = itemsArray.map(item => {
-            return item.value;
-        })
-        return symbolsArray;
     },
 
 }
