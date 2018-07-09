@@ -4,7 +4,7 @@ const TrieSearch = require('trie-search'),
 
       
 module.exports = {
-    searchName(name) {
+    searchNames(name) {
         
         const ts = new TrieSearch();
         ts.addFromObject(cryptocurrencies.nameToSymbol);
@@ -17,7 +17,7 @@ module.exports = {
         return namesArray;
     },
 
-    searchSymbol(symbol) {
+    searchSymbols(symbol) {
         const ts = new TrieSearch();
         ts.addFromObject(cryptocurrencies.symbolToName);
         let itemsArray = ts.get(symbol);
@@ -28,7 +28,7 @@ module.exports = {
         return symbolsArray;
     },
 
-    nameToSymbols(name) {
+    namesToSymbols(name) {
         const ts = new TrieSearch();
         ts.addFromObject(cryptocurrencies.nameToSymbol);
         
@@ -40,7 +40,7 @@ module.exports = {
         return symbolsArray;
     },
 
-    symbolToNames(symbol) {
+    symbolsToNames(symbol) {
         const ts = new TrieSearch();
         ts.addFromObject(cryptocurrencies.symbolToName);
         let itemsArray = ts.get(symbol);
