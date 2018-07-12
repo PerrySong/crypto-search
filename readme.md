@@ -24,8 +24,9 @@ Require the object in your code
     
     //searchNames(prefix): Return all the cryptocurrencies' name whose name starts with the given prefix
     
-    let names = cryptoSearch.searchNames('BtC');
-    console.log(names) // [ 'BTC Lite', 'BTCMoon' ]
+    cryptoSearch.searchNames("btc")
+    .then(names => console.log(names)) // [ 'BTC Lite', 'BTCMoon' ]
+    .catch(err => console.log(err))
 ```
 
 * searchSymbols(string)
@@ -35,8 +36,10 @@ Require the object in your code
 
     //searchSymbols(prefix): Return all the cryptocurrencies' symbol whose symbol starts with the given prefix
     
-    let symbols = cryptoSearch.searchSymbols('BtC');
-    console.log(symbols) /* [ 'BTC',
+    cryptoSearch.searchSymbols("btc")
+    .then(symbols => console.log(symbols))
+    .catch(err => console.log(err))
+                        /* [ 'BTC',
                             'BTCL',
                             'BTCL*',
                             'BTCM',
@@ -65,8 +68,9 @@ Require the object in your code
     
     //namesToSymbols(prefix) return all the cryptocurrencies' symbol whose name starts with the given prefix
     
-    let symbols = cryptoSearch.namesToSymbols('BtC');
-    console.log(symbols) /* [ 'BTCL', 'BTCM' ] */
+    cryptoSearch.namesToSymbols("btc")
+    .then(symbols => console.log(symbols)) /* [ 'BTCL', 'BTCM' ] */
+    .catch(err => console.log(err))
 ```
 
 * symbolsToNames(string)
@@ -77,8 +81,10 @@ Require the object in your code
     
     //symbolsToNames(prefix) return all the cryptocurrencies' name whose symbol starts with the given prefix
     
-    let names = cryptoSearch.symbolsToNames('BtC');
-    console.log(names) /* [ 'Bitcoin',
+    cryptoSearch.symbolsToNames("btc")
+    .then(names => console.log(names)) 
+    .catch(err => console.log(err))
+                            /* [ 'Bitcoin',
                               'BTC Lite',
                               'BitluckCoin',
                               'BTCMoon',

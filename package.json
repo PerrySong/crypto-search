@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "trie-search": "^1.2.7"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
   }
 }
