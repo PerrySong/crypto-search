@@ -104,3 +104,15 @@ Require the object in your code
                               'BitcoinGo',
                               'BitcoinZ' ] */
 ```
+
+* searchIdAndSymbol(string)
+
+```js
+
+    const search = require('./search')
+    //This function is case insensitive, and need a parameter of currency's name.
+
+    search.searchIdAndSymbol("BitCoin")
+    .then(res => console.log(res)) // { id: 1, symbol: 'BTC' }
+    .catch(err => console.log(err))
+```

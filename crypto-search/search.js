@@ -1,5 +1,6 @@
 const TrieSearch = require('trie-search'),
       cryptocurrencies = require('./cryptocurrencies')
+      nameToIdAndSymbol = require('./nameToIdAndSymbol').nameToIdAndSymbol
       
 
       
@@ -64,7 +65,7 @@ module.exports = {
             const namesArray = itemsArray.map(item => {
                 return item.value;
             })
-            if(namesArray) {
+            if (namesArray) {
                 resolve(namesArray);
             } else {
                 reject("Can not find the names.")
@@ -72,4 +73,14 @@ module.exports = {
         })
     },
 
+    searchIdAndSymbol(name) {
+        name = name.toUpperCase()
+        return new Promise((resolve, reject) => {
+            if (nameToIdAndSymbol[name])
+                resolve(nameToIdAndSymbol[name])
+            else {
+                reject("Can not find the names.")
+            }
+        })
+    }
 }
