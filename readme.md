@@ -105,6 +105,18 @@ Require the object in your code
                               'BitcoinZ' ] */
 ```
 
+* partialNameSearchCoins(string)
+
+```js
+    const search = require('./search')
+    //This function is case insensitive, and need a parameter of currency's name.
+    search.partialNameSearchCoins("btc")
+    .then(res => console.log(res)) 
+    .catch(err => console.log(err))
+    // [ { name: 'BTCTALKCOIN', symbol: 'TALK', id: 295 },
+    // { name: 'BTCMOON', symbol: 'BTCM', id: 2119 } ]
+```
+
 * searchIdAndSymbol(string)
 
 ```js
