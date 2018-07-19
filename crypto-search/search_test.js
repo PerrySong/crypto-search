@@ -5,6 +5,6 @@ search.searchIdAndSymbol("BitCoin")
 .catch(err => console.log(err))
 
 
-search.partialNameSearchCoin('btc')
+search.partialNameSearchCoins('btc')
 .then(res => console.log(res))
 .catch(err => console.log(err))
