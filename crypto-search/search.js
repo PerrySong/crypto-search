@@ -1,5 +1,5 @@
 const TrieSearch = require('trie-search'),
-      cryptocurrencies = require('./cryptocurrencies')
+      cryptocurrencies = require('./cryptocurrencies'),
       nameToIdAndSymbol = require('./nameToIdAndSymbol').nameToIdAndSymbol
       
 
@@ -82,5 +82,24 @@ module.exports = {
                 reject("Can not find the names.")
             }
         })
+    },
+    
+    partialNameSearchCoin(name) {
+        return new Promise((resolve, reject) => {
+            const ts = new TrieSearch();
+            ts.addFromObject(cryptocurrencies.nameToSymbol);
+            let itemsArray = ts.get(name);
+            
+            const namesArray = itemsArray.map(item => {
+                return item._key_;
+            })
+            if(namesArray) {
+                resolve(namesArray);
+            } else {
+                reject("Can not find the names.")
+            }
+        })
     }
+
+    
 }
