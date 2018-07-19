@@ -87,14 +87,20 @@ module.exports = {
     partialNameSearchCoin(name) {
         return new Promise((resolve, reject) => {
             const ts = new TrieSearch();
-            ts.addFromObject(cryptocurrencies.nameToSymbol);
+            ts.addFromObject(nameToIdAndSymbol);
             let itemsArray = ts.get(name);
-            
-            const namesArray = itemsArray.map(item => {
-                return item._key_;
+            console.log(itemsArray)
+            const coinsArray = itemsArray.map(item => {
+                const coin = new Object;
+                coin['name'] = item._key_;
+                coin['symbol'] = item.value.symbol;
+
+                coin['id'] = item.value.id;
+                return coin
+                
             })
-            if(namesArray) {
-                resolve(namesArray);
+            if(coinsArray) {
+                resolve(coinsArray);
             } else {
                 reject("Can not find the names.")
             }
